@@ -8,7 +8,8 @@ const Inventory = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:5000/inventory')
+        const url = `https://guarded-badlands-97072.herokuapp.com/inventory`
+        fetch(url)
             .then(res => res.json())
             .then(data => setInventories(data));
     }, [])

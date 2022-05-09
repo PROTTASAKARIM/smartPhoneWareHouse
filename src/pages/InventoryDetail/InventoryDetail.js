@@ -6,7 +6,7 @@ const InventoryDetail = () => {
     const [inventorie, setInventorie] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${inventoryId}`;
+        const url = `https://guarded-badlands-97072.herokuapp.com/inventory/${inventoryId}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())
@@ -23,7 +23,7 @@ const InventoryDetail = () => {
         // console.log(updatedItem);
 
         // send data to server
-        const url = `http://localhost:5000/inventory/${inventoryId}`;
+        const url = `https://guarded-badlands-97072.herokuapp.com/inventory/${inventoryId}`;
         fetch(url, {
             method: 'PUT',
             headers: {

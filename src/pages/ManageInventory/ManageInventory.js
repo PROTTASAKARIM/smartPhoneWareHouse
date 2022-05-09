@@ -12,7 +12,7 @@ const ManageInventory = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/inventory')
+        fetch('https://guarded-badlands-97072.herokuapp.com/inventory')
             .then(res => res.json())
             .then(data => setInventories(data));
     }, [])
