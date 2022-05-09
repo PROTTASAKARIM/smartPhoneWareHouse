@@ -27,18 +27,20 @@ const Header = () => {
                             <Nav.Link as={Link} to="/home">Home</Nav.Link>
                             <Nav.Link as={Link} to="/home#inventory">Inventory</Nav.Link>
                             {/* <Nav.Link href="home#inventory">Inventory</Nav.Link> */}
-                            <Nav.Link href="home#suppliers">Suppliers</Nav.Link>
-                            <Nav.Link href="home#importers">Importers</Nav.Link>
+                            <Nav.Link as={Link} to="/home#best Seller">Best Sellers</Nav.Link>
+                            <Nav.Link as={Link} to="/home#bestSeller">Exclusive Items</Nav.Link>
+
 
                         </Nav>
                         <Nav>
                             <Nav.Link as={Link} to="about">About</Nav.Link>
-                            {/* {
-                            user && <>
-                            <Nav.Link as={Link} to="addservice">Add</Nav.Link>
-                            <Nav.Link as={Link} to="manage">Manage</Nav.Link>
-                            </>
-                        } */}
+                            {
+                                user && <>
+                                    <Nav.Link as={Link} to="inventory/manageinventory">Manage Items</Nav.Link>
+                                    <Nav.Link as={Link} to="addnewItem">Add Item</Nav.Link>
+                                    <Nav.Link as={Link} to="myitems">My items</Nav.Link>
+                                </>
+                            }
                             {
                                 user ?
                                     <button className='btn btn-link text-white text-decoration-none' onClick={handleSignOut}>sign out</button>

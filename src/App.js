@@ -10,6 +10,9 @@ import Register from './pages/Login/Register/Register';
 import RequireAuth from './pages/Login/RequireAuth/RequireAuth';
 import ManageInventory from './pages/ManageInventory/ManageInventory';
 import AddNewItem from './pages/AddNewItem/AddNewItem';
+import MyItem from './pages/MyItem/MyItem';
+import Error from './pages/Error/Error';
+import About from './pages/About/About';
 
 function App() {
   return (
@@ -18,6 +21,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/about' element={<About></About>}></Route>
         <Route path='/inventory/:inventoryId' element={
           <RequireAuth>
             <InventoryDetail></InventoryDetail>
@@ -33,6 +37,10 @@ function App() {
         <Route path="/addnewItem" element={<RequireAuth>
           <AddNewItem></AddNewItem>
         </RequireAuth>}></Route>
+        <Route path="/myitems" element={<RequireAuth>
+          <MyItem></MyItem>
+        </RequireAuth>}></Route>
+        <Route path='*' element={<Error></Error>}></Route>
 
       </Routes>
       <Footer></Footer>

@@ -5,6 +5,7 @@ import AllProducts from '../AllProducts/AllProducts';
 
 
 
+
 const ManageInventory = () => {
     const [inventories, setInventories] = useState([]);
     const navigate = useNavigate();

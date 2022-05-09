@@ -29,6 +29,7 @@ const AddNewItem = () => {
                 <input className='mb-2' placeholder='Photo URL' type="text" {...register("img")} />
                 <input className='mb-2' placeholder='Quantity' type="number" {...register("quantity")} />
                 <input className='mb-2' placeholder='Sold' type="number" {...register("sold")} />
+                <input className='mb-2' placeholder='SupplierName' type="text" {...register("supplierName")} />
                 <input className='btn btn-success' type="submit" value="Add Service" />
             </form>
         </div>
