@@ -13,6 +13,11 @@ const InventoryDetail = () => {
             .then(data => setInventorie(data));
 
     }, [])
+
+    const decreaseQuantity = () => {
+        const proceed = window.confirm('Are you sure?');
+    }
+
     return (
         <div>
             <img className='w-20 mt-5' src={inventorie.img} alt="" />
@@ -24,7 +29,11 @@ const InventoryDetail = () => {
                 <h4>Sold  : {inventorie.sold}</h4>
                 <p>{inventorie.shortDescription}</p>
                 <h4>Supplier Name : {inventorie.supplierName}</h4>
-                <button className='btn btn-success'> Delivered</button>
+                <button onClick={() => decreaseQuantity(inventoryId)} className='btn btn-success'> Delivered</button>
+                <div className='mt-2 justify-content-center'>
+                    <input className='rounded' type="number" name="restockQuantity" id="" placeholder='Restock Quantity' />
+                    <button className='btn btn-success'>Add New Item</button>
+                </div>
 
 
             </div>

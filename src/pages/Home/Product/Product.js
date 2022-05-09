@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import ReadMoreReact from 'read-more-react';
 
 const Product = ({ inventory }) => {
     const { _id } = inventory;
@@ -19,7 +20,12 @@ const Product = ({ inventory }) => {
                 <Card.Body>
                     <Card.Title>{inventory.name}</Card.Title>
                     <Card.Text>
-                        {inventory.shortDescription}
+                        <ReadMoreReact text={inventory.shortDescription}
+                            min={0}
+                            ideal={500}
+                            max={500}
+                            readMoreText={"click here to read more......."} />
+                        {/* {inventory.shortDescription} */}
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
