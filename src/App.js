@@ -9,6 +9,7 @@ import Login from './pages/Login/LogIn/Login';
 import Register from './pages/Login/Register/Register';
 import RequireAuth from './pages/Login/RequireAuth/RequireAuth';
 import ManageInventory from './pages/ManageInventory/ManageInventory';
+import AddNewItem from './pages/AddNewItem/AddNewItem';
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/addnewItem" element={<RequireAuth>
+          <AddNewItem></AddNewItem>
+        </RequireAuth>}></Route>
 
       </Routes>
       <Footer></Footer>

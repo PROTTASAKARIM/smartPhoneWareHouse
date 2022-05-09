@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AllProducts from '../AllProducts/AllProducts';
 
 
@@ -6,6 +7,7 @@ import AllProducts from '../AllProducts/AllProducts';
 
 const ManageInventory = () => {
     const [inventories, setInventories] = useState([]);
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -13,6 +15,9 @@ const ManageInventory = () => {
             .then(res => res.json())
             .then(data => setInventories(data));
     }, [])
+    const addNewItem = () => {
+        navigate(`/addnewItem`);
+    }
 
     return (
         <div className='container'>
@@ -24,6 +29,7 @@ const ManageInventory = () => {
                     ></AllProducts>)
                 }
             </div>
+            <button onClick={() => addNewItem()} className='btn btn-success mt-5'>Add new Item</button>
 
         </div>
     );
