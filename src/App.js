@@ -13,6 +13,7 @@ import AddNewItem from './pages/AddNewItem/AddNewItem';
 import MyItem from './pages/MyItem/MyItem';
 import Error from './pages/Error/Error';
 import About from './pages/About/About';
+import Blogs from './pages/Blogs/Blogs';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/about' element={<About></About>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/inventory/:inventoryId' element={
           <RequireAuth>
             <InventoryDetail></InventoryDetail>
