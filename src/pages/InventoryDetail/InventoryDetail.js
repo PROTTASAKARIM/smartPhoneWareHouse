@@ -18,10 +18,13 @@ const InventoryDetail = () => {
             <img className='w-20 mt-5' src={inventorie.img} alt="" />
             <div className='container mt-2'>
                 <h1>{inventorie.name}</h1>
+                <p><small>id : {inventorie._id}</small></p>
                 <h4>Price : {inventorie.price}</h4>
                 <h4>Quantity : {inventorie.Quantity}</h4>
+                <h4>Sold  : {inventorie.sold}</h4>
                 <p>{inventorie.shortDescription}</p>
                 <h4>Supplier Name : {inventorie.supplierName}</h4>
+                <button className='btn btn-success'> Delivered</button>
 
 
             </div>
