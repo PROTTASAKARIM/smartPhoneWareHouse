@@ -12,10 +12,35 @@ const InventoryDetail = () => {
             .then(res => res.json())
             .then(data => setInventorie(data));
 
-    }, [])
+    }, [inventoryId])
 
-    const decreaseQuantity = () => {
-        const proceed = window.confirm('Are you sure?');
+    const decreaseQuantity = (event) => {
+        const quantity = (parseInt(inventorie?.quantity) - 1);
+        // console.log(inventorie?.sold);
+        // const sold = (parseInt(inventorie?.sold) + 1);
+        // console.log(quantity);
+        const updatedItem = { quantity };
+        // console.log(updatedItem);
+
+        // send data to server
+        const url = `http://localhost:5000/inventory/${inventoryId}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedItem),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Item updated successfully');
+                setInventorie({ ...inventorie, quantity: updatedItem.quantity });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
     }
 
     return (
@@ -25,7 +50,7 @@ const InventoryDetail = () => {
                 <h1>{inventorie.name}</h1>
                 <p><small>id : {inventorie._id}</small></p>
                 <h4>Price : {inventorie.price}</h4>
-                <h4>Quantity : {inventorie.Quantity}</h4>
+                <h4>Quantity : {inventorie.quantity}</h4>
                 <h4>Sold  : {inventorie.sold}</h4>
                 <p>{inventorie.shortDescription}</p>
                 <h4>Supplier Name : {inventorie.supplierName}</h4>

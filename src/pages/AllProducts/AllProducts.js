@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import ReadMoreReact from 'read-more-react';
+import ReadMoreReact from 'read-more-react/dist/components/ReadMoreReact';
 
-const Product = ({ inventory }) => {
+const AllProducts = ({ inventory }) => {
     const { _id } = inventory;
+    const [inventories, setInventories] = useState([]);
 
-    const navigate = useNavigate();
 
-    const navigateToServiceDetail = id => {
-        console.log(id);
-        navigate(`/inventory/${id}`);
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure?');
+        if (proceed) {
+            const url = `http://localhost:5000/inventory/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remaining = inventories.filter(inventory => inventory._id !== id);
+                    setInventories(remaining);
+                })
+        }
     }
+
     return (
         <div className='container'>
             {/* <h1>product : {inventory.name}</h1> */}
@@ -33,10 +45,10 @@ const Product = ({ inventory }) => {
                     <ListGroupItem>Quantity : {inventory.quantity}</ListGroupItem>
                     <ListGroupItem>Supplier Name :{inventory.supplierName} </ListGroupItem>
                 </ListGroup>
-                <button onClick={() => navigateToServiceDetail(_id)} className='btn btn-success'>Stock Update</button>
+                <button onClick={() => handleDelete(_id)} className='btn btn-success'>Delete</button>
             </Card>
         </div>
     );
 };
 
-export default Product;
+export default AllProducts;
