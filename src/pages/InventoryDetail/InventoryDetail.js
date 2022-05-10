@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const InventoryDetail = () => {
     const { inventoryId } = useParams();
     const [inventorie, setInventorie] = useState({});
+    const navigate = useNavigate();
 
     const restockRef = useRef('');
 
@@ -15,6 +16,11 @@ const InventoryDetail = () => {
             .then(data => setInventorie(data));
 
     }, [inventoryId])
+
+
+    const handleManageInventories = () => {
+        navigate(`/inventory/manageinventory`);
+    }
 
     const decreaseQuantity = () => {
         const quantity = (parseInt(inventorie?.quantity) - 1);
@@ -91,6 +97,7 @@ const InventoryDetail = () => {
                     <input ref={restockRef} className='rounded' type="number" name="restockQuantity" id="" placeholder='Restock Quantity' />
                     <button onClick={() => restockQuantity()} className='btn btn-success'>Restock</button>
                 </div>
+                <button onClick={handleManageInventories} className="btn btn-link text-decoration-none text-success mt-5"> Manage Inventories</button>
 
 
             </div>

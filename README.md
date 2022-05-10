@@ -1,6 +1,13 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# my live web site link 
+the link is (https://smartphn-warehouse.web.app/)
+* insert, delete, update data done
+* Log in register with firebase done
+* create database with heroku
+* qus ans done
+* asked a qus in stackover flow
 
 ## Available Scripts
 
