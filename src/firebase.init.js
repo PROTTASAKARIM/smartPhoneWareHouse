@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDryVuCoXI-XF9AzFD8oL6_NBytB1TyvSk",
-  authDomain: "smartphone-warehouse-c39ae.firebaseapp.com",
-  projectId: "smartphone-warehouse-c39ae",
-  storageBucket: "smartphone-warehouse-c39ae.appspot.com",
-  messagingSenderId: "353227522719",
-  appId: "1:353227522719:web:9e3aae29007ed1ab4418aa"
+  apiKey: "AIzaSyBckGDRPM09lUyCD4sdsHYFNInaNI4tkfM",
+  authDomain: "smartphn-warehouse.firebaseapp.com",
+  projectId: "smartphn-warehouse",
+  storageBucket: "smartphn-warehouse.appspot.com",
+  messagingSenderId: "723875612373",
+  appId: "1:723875612373:web:bec539271ed2a2becec45c"
 };
 
 // Initialize Firebase
