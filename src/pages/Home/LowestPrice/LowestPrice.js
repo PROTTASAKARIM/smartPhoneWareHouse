@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Product from '../Product/Product';
+import './LowestPrice.css'
 
 const LowestPrice = () => {
     const [inventories, setInventories] = useState([]);
