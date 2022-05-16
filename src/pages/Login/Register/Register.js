@@ -25,6 +25,12 @@ const Register = () => {
         return <Loading></Loading>
     }
 
+    let ErrorMsg;
+    if (error || updateError) {
+        ErrorMsg = <p className='text-red-500'><small>{error?.message || updateError?.message}</small></p>
+    }
+
+
     if (user) {
         console.log('user', user);
     }
@@ -60,6 +66,7 @@ const Register = () => {
                     type="submit"
                     value="Register" />
             </form>
+            {ErrorMsg}
             <p>Already have an account? <Link to="/login" className='text-success pe-auto text-decoration-none' onClick={navigateLogin}>Please Login</Link> </p>
         </div>
     );
