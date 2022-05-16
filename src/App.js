@@ -14,6 +14,7 @@ import MyItem from './pages/MyItem/MyItem';
 import Error from './pages/Error/Error';
 import About from './pages/About/About';
 import Blogs from './pages/Blogs/Blogs';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path='*' element={<Error></Error>}></Route>
 
       </Routes>
+      <ToastContainer></ToastContainer>
       <Footer></Footer>
     </div>
   );
