@@ -13,13 +13,18 @@ const AddNewItem = () => {
         console.log(user.email)
 
         console.log(data);
+
+        let fromdata = {
+            ...data, email: user.email
+        };
+        console.log(fromdata)
         const url = `https://guarded-badlands-97072.herokuapp.com/inventory`;
         fetch(url, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(fromdata)
         })
             .then(res => res.json())
             .then(result => {
@@ -38,7 +43,7 @@ const AddNewItem = () => {
                 <input className='mb-2' placeholder='Quantity' type="number" {...register("quantity")} />
                 <input className='mb-2' placeholder='Sold' type="number" {...register("sold")} />
                 <input className='mb-2' placeholder='SupplierName' type="text" {...register("supplierName")} />
-                <input className='mb-2' value={user.email} disabled placeholder='Email' type="text" {...register("email")} />
+                <input className='mb-2' value={user.email} disabled placeholder='Email' type="text" />
 
                 <input className='btn btn-success' type="submit" value="Add Service" />
             </form>
